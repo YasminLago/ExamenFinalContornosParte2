@@ -44,14 +44,17 @@ public class Principal {
                         }
                     }
                 }
-
+                
                 if (numPrimo == true) {
                     System.out.println(comparaNum);
                 }
             }
         }
     }
-    
+    /**
+     * Pide que se introduzca por teclado un numero mayor de 0
+     * @return Retorna dicho numero
+     */
     public static int introduceNumDigitos() {
         int digitos;
         Scanner introduce=new Scanner(System.in);
@@ -59,6 +62,11 @@ public class Principal {
         return digitos=introduce.nextInt();
     }  
     
+    /**
+     * Compara numeros para despues comprobar si es primo
+     * @param comparaNum Recibe el numero a comparar
+     * @return numero comprado
+     */
     public static int contadorNumeros(int comparaNum) {
         int aux = comparaNum;
         int contador = 0;
@@ -68,7 +76,14 @@ public class Principal {
         }
         return contador;
     }
-    
+    /**
+     * Calculo de numeros primos
+     * @param i1
+     * @param k
+     * @param comparaNum
+     * @param contador1
+     * @return Devuelve el resutado de las operaciones hechas para el calculo de numeros primos
+     */
     public static int divisiones(int i1, int k, int comparaNum, int contador1) {
         while (i1 <= k) {
             if (comparaNum % i1 == 0) {
