@@ -12,10 +12,10 @@ public class Principal {
 
     public static void main(String arg[]) {
         
-        int numDigitos = 2;
+        int numDigitos = 2;       
         int nDigitos = 0;
         
-        if (numDigitos <= 0) {
+        if (numDigitos <= 0) { //Si el numero es menos de 0 se pide introducir numero mayor de 0
             introduceNumDigitos();
         }
         
