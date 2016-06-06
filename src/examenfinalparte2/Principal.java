@@ -1,60 +1,89 @@
-
 package examenfinalparte2;
 
+import java.util.Scanner;
+
+/**
+ *
+ * @author ylagorebollar
+ */
 public class Principal {
 
-    public static boolean p = false;
+    public static boolean numPrimo = false;
+
+    public static void main(String arg[]) {
+        
+        int numDigitos = 2;
+        int nDigitos = 0;
+        
+        if (numDigitos <= 0) {
+            introduceNumDigitos();
+        }
+        
+        for (int comparaNum = 1; comparaNum <= 99999; comparaNum++) {
+            int contador = contadorNumeros(comparaNum);
+            nDigitos = contador;
+
+            if (nDigitos == numDigitos) {
+                if (comparaNum < 4) {
+                    numPrimo = true;
+                } else {
+                    if (comparaNum % 2 == 0) {
+                        numPrimo = false;
+                    } else {
+                        int contador2 = 0;
+                        int i = 1;
+                        int k = (comparaNum - 1) / 2;
+                        if (k % 2 == 0) {
+                            k--;
+                        }
+
+                        contador2 = divisiones(i, k, comparaNum, contador2);
+
+                        if (contador2 == 1) {
+                            numPrimo = true;
+                        }
+                    }
+                }
+
+                if (numPrimo == true) {
+                    System.out.println(comparaNum);
+                }
+            }
+        }
+    }
     
-    public static void main(String arg[])
-        {
-        int dig=2;
-        int ndig=0;
-        if(dig<=0)
+    public static int introduceNumDigitos() {
+        int digitos;
+        Scanner introduce=new Scanner(System.in);
         System.out.println("Ingrese como parámetro, un numero de digitos correcto (mayor que 0): ");
-        for(int i = 1; i <= 99999; i++ )
-        {
-            int aux = i;
- 
-            int contador=0;
- 
-            while (aux != 0)
-        {
+        return digitos=introduce.nextInt();
+    }  
+    
+    public static int contadorNumeros(int comparaNum) {
+        int aux = comparaNum;
+        int contador = 0;
+        while (aux != 0) {
             aux = aux / 10;
             contador++;
         }
-        ndig=contador;
-            
-            
-            if(ndig==dig){
-                   if (i < 4) p = true;
-            else
-            {
-            if (i % 2 == 0) p = false; 
-                else
-                {
-                    int contador1 = 0;  
-                    int i1 = 1; 
-                    int k = (i - 1) / 2; 
-                    if  (k % 2 == 0) k--;  
-             
-                    while(i1 <= k)
-                    {
-                        if (i % i1 == 0) contador1++;
-                            i1 += 2;
-                            if (contador1 == 2) i1 = k + 1;
-                    }
- 
-        if (contador1 == 1) p = true;
-            } 
-        } 
-     
-                if (p == true) 
-                    System.out.println(i);    
+        return contador;
+    }
+    
+    public static int divisiones(int i1, int k, int comparaNum, int contador1) {
+        while (i1 <= k) {
+            if (comparaNum % i1 == 0) {
+                contador1++;
+            }
+            i1 += 2;
+            if (contador1 == 2) {
+                i1 = k + 1;
             }
         }
-        }
- 
-       
- 
+        return contador1;
+    }
+
     
+
+    
+
 }
