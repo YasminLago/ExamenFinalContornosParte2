@@ -65,7 +65,7 @@ public class Principal {
     /**
      * Compara numeros para despues comprobar si es primo
      * @param comparaNum Recibe el numero a comparar
-     * @return numero comprado
+     * @return numero comparado
      */
     public static int contadorNumeros(int comparaNum) {
         int aux = comparaNum;
